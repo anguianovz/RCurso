@@ -1,0 +1,46 @@
+---
+title: "Secuencias en R"
+output: html_notebook
+---
+
+
+
+Secuencias de valores
+```{r}
+1:20
+```
+que es lo mismo que
+```{r}
+seq(1, 20)
+```
+pero tambien podemos indicar los incrementos de esa secuencia
+por ejemplo en vez de incrementos de 1 queremos incrementos de 0.5
+```{r}
+seq(0, 10, by=0.5)
+```
+o solo queremos una secuencia de x cantidad de numeros entre 2 valores
+```{r}
+my_seq <- seq(5, 10, length=30)
+```
+length() nos permite saber el tamaño de un valor/variable
+```{r}
+1:length(my_seq)
+## tambien es lo mismo que:
+seq(along.with = my_seq)
+## y que
+seq_along(my_seq)
+```
+Otra Funcion es la de replicar secuencias de numeros
+Por ejemplo creamos un vector de 40 ceros
+```{r}
+rep(0, times=40)
+```
+O si queremos un vector con 10 repeticiones de otro vector
+```{r}
+rep(c(0, 1, 2), times=10)
+```
+Y si queremos repetir cada valor del vector,es decir, queremos 10 ceros, 10 unos y 10 dos.
+```{r}
+rep(c(0, 1, 2), each=10)
+```
+

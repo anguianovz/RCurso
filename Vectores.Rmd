@@ -1,0 +1,54 @@
+---
+title: "Vectores en R"
+output: html_notebook
+---
+En R un dato estructural muy comun es el vector.
+Los vectores vienen en 2 tipos: Vestores atomicos y listas. El vector atomico contiene
+exactamente un tipo de dato, mientras que la lista contiene multiples tipos de dato.
+Tipos de dtos pueden ser numerico, logico, caracteres, enteros y complejos.
+
+```{r}
+num_vect <- c(0.5, 55, -10, 6)
+tf <- num_vect < 1
+tf ## resultado es un vector de tipo de datos logicos
+```
+A|B significa A union B
+
+Vector de caracteres
+```{r}
+my_char <- c("My", "name", "is")
+```
+Ahora uniremos los elementos de my_char para formar una cadena de caracteres
+(Un vector de caracteres de tamaño 1)
+```{r}
+paste(my_char, collapse = " ")
+```
+Con el argumento collapse le decimos a R que queremos separar los elementos de my_char
+con un espacio.
+
+Ahora vamos a concatenar un nombre como ejemplo
+```{r}
+my_name <- c(my_char, "Jesus")
+```
+y lo unimos en una sola cadena de caracteres
+```{r}
+paste(my_name, collapse=" ")
+```
+
+En los casos mas simples podemos unir dos vectores de caracteres que son de 
+longitud 1.
+```{r}
+paste("Hello", "world!", sep = " ")
+```
+Donde el argumento sep le dice a R que queremos separar los elementos unidos con un espacio
+Otro Ejemplo
+```{r}
+paste(1:3, c("X", "Y", "Z"), sep = "")
+```
+
+Reciclaje de vectores es cuando tienen diferentes tamaños  de longitud
+```{r}
+paste(LETTERS, 1:4, sep = "-")
+```
+
+

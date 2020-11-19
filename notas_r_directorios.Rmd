@@ -1,0 +1,77 @@
+---
+title: "Manipulacion de directorios y Archivos"
+output: html_notebook
+---
+
+
+```{r}
+setwd("~/Documentos/R_Course")
+
+getwd()
+#GUardar una direccion usa una variable
+old.dir <- getwd()
+```
+
+Listar todos los objetos de espacio de trabjo utilizado
+```{r}
+ls()
+```
+Para listar los archivos de el directorio de trabajo
+```{r}
+list.files()
+#o tambien
+dir()
+```
+Usando args() en un nombre de una funcion como list.files() es una manera muy util de ver
+que argumentos puede tomar la funcion
+```{r}
+args(list.files)
+```
+Para crear un nuevo directorio en el actual directorio de trabajo
+```{r}
+dir.create("dir_name")
+```
+Para crear un archivo ya sea R se puede utilizar la siguiente funcion:
+```{r}
+file.create("mytest.R")
+```   
+Para buscar un archivo especifico en el directorio de trabajo:
+```{r}
+file.exists("mytest.R")
+```
+Para mostrar informacion acerca del archivo:
+```{r}
+file.info("mytest.R")
+```
+Para renombrar archivos
+```{r}
+file.rename("mytest.R", "mytest2.R")
+```
+Eliminar un archivo
+```{r}
+file.remove("mytest.R")
+```
+Copiar un archivo
+```{r}
+
+file.copy("mytest2.R", "mytest3.R")
+```
+Para obtener el enlace/path de un archivo 
+```{r}
+file.path("mytest3.R")
+```
+Asimismo se pueden construit archivos y paths de directorio que son
+INDEPENDIENTE DEL SISTEMA OPERATIVO del codigo R que se esta corriendo
+```{r}
+file.path("folder1", "folder2")
+```
+
+Usando file.path para crear un directorio dentro de otro directorio:
+```{r}
+dir.create(file.path("testdir2", "testdir3"), recursive = TRUE)
+```
+Para borrar un directorio
+```{r}
+unlink("testdir", recursive = TRUE)
+```
+
