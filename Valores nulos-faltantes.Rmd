@@ -1,0 +1,39 @@
+---
+title: "Missing Values"
+output: html_notebook
+---
+
+Como ejemplo se hace lo siguiente
+Generamos 1000 numeros aleatorios
+```{r}
+y <- rnorm(1000)
+
+```
+Generamos un vector que contenga 1000 NA's
+```{r}
+z <- rep(NA, 1000)
+```
+
+Tomamos 100 elementos de esos 2000 valores aleatoriamente
+```{r}
+my_data <- sample(c(y, z), 100)
+```
+
+Nos preguntamos donde estaran ubicados los NA's en nuestros datos, usando la funcion is.na() no mostrara si cada elemento del vector es NA.
+```{r}
+my_na <- is.na(my_data)
+```
+Donde haya TRUE correspone a un elemento NA
+
+Ahora nos interesa saber cuantos NA's hay en nuestros datos
+```{r}
+sum(my_na)
+```
+
+Existe un segundo tipo de dato faltante que es el NaN, por ejemplo cuando se divide 0/0 o resta de infinitos
+```{r}
+0/0
+Inf-Inf
+```
+
+
