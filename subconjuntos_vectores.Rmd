@@ -1,0 +1,77 @@
+---
+title: "Subconjuntos de vectores"
+output: html_notebook
+---
+
+Extraccion de elementos de un vector basado en alguna condicion especifica
+Por ejemplo si solo estamos interesados en los primeros 20 elementos de un vector, o solo
+los elementos que no son NA, o solo los positivos o corresponden a una variable de interes
+especifica.
+
+Si tenemos un vector x y queremos los 10 primeros elementos entonces el vector indexado:
+```{r}
+x[1:10]
+```
+SI solo queremos ver los NA
+```{r}
+x[is.na(x)]
+```
+Si queremos todos los elementos que no sean NA
+```{r}
+y <- x[!is.na(x)]
+```
+Si queremos todos los elementos positivos de y
+```{r}
+y[y > 0]
+```
+SI hubieramos hecho x[x > 0] desde antes nos hubiera arrojado un resultado aun con los NA
+
+Combinando lo anterior seria lo mismo si
+```{r}
+x[!is.na(x) & x>0]
+```
+
+Digamos que queremos los valores 3ero, 5to y 7to de el vector x
+```{r}
+x[x(3,5,7)]
+```
+Si tratamos de extraer un conjunto o elemento fuera del rango del vactor no encontrara
+un elemento ynos arrogaria un valor inexistente NA
+
+Si queremos prescindir de algunos elementos podemos utilizar la exprecion anterior como
+ejemplo pero en esta ocasion cambiaremos el signo de la funcion concatenar:
+```{r}
+x[-c(2, 10)] 
+```
+
+
+Subconjuntos con elementos 'nombrados'
+creamos un vector con elementos nombrados
+```{r}
+vect <- c(foo = 11, bar = 2, norf = NA)
+```
+Podemos obtener los nombres del vector utilisando la funcion names()
+```{r}
+names(vect)
+```
+Alternativamente creamos un vector sin nombres
+```{r}
+vect2 <- c(11, 2, NA)
+```
+Ahora añadimos los nombres a vect2
+```{r}
+names(vect2) <- c("foo", "bar", "norf")
+```
+Verificmos que vect y vect2 sean iguales
+```{r}
+identical(vect, vect2)
+```
+Ahora para obtener por ejemplo el segundo elemento de vect
+```{r}
+vect["bar"]
+```
+Y podemos especificar un vector de nombres con
+```{r}
+vect[c("foo", "bar")]
+```
+
